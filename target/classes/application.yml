@@ -1,0 +1,44 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /miao
+
+spring:
+  servlet:
+    multipart:
+      maxFileSize: 50MB
+      maxRequestSize: 100MB
+  output:
+    ansi:
+      enabled: ALWAYS
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://121.40.72.215:3306/miao?characterEncoding=UTF-8
+    username: stian
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      connection-test-query: SELECT 1
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      pool-name: DatebookHikariCP
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: stian.miao.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    stian:
+      miao:
+        mapper: debug
+        
+
+
+
+
